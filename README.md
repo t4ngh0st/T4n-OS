@@ -2,7 +2,6 @@
   <img src="assets/Other.png" alt="T4n OS Logo" width="200"/>
 </p>
 
-<h1 align="center">T4n OS</h1>
 <p align="center">
   <i>Linux Distribution based on <b>Void Linux</b></i>  
 </p>
