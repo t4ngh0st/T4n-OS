@@ -35,7 +35,6 @@
 
 ## ⬇️ Download
 - [Google Drive](mailto:akun@gmail.com)  
-- [SourceForge](urldownload/t4nos)  
 
 ---
 
