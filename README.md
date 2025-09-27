@@ -20,16 +20,16 @@
 
 ## 📀 Editions
 ### 🖥️ XFCE
-<img src="screenshots/xfce.png" alt="T4n OS XFCE" width="600">
+<img src="T4n.jpg" alt="T4n OS XFCE" width="600">
 
 ### ⚡ I3WM
-<img src="screenshots/i3wm.png" alt="T4n OS I3WM" width="600">
+<img src="T4n.jpg" alt="T4n OS I3WM" width="600">
 
 ### 🧩 BSPWM
-<img src="screenshots/bspwm.png" alt="T4n OS BSPWM" width="600">
+<img src="T4n.jpg" alt="T4n OS BSPWM" width="600">
 
 ### 🌌 Hyprland *(Coming Soon)*
-<img src="screenshots/hyprland.png" alt="T4n OS Hyprland" width="600">
+<img src="T4n.jpg" alt="T4n OS Hyprland" width="600">
 
 ---
 
