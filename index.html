@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="T4n OS adalah distro Linux berbasis Void Linux. Ringan, cepat, dan cocok untuk developer serta power user.">
+    <meta name="keywords" content="T4n OS, Void Linux, Linux Indonesia, Open Source">
+    <meta name="Gh0sT4n" content="T4n OS Community">
+    <title>T4n OS - Linux Indonesia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Light Mode Colors */
+            --primary-color: #0a4d0a;      /* Hijau Tua */
+            --secondary-color: #0a2d5e;   /* Biru Tua */
+            --accent-color: #4ade80;      /* Hijau Muda */
+            --accent-blue: #60a5fa;       /* Biru Muda */
+            --text-light: #ffffff;        /* Putih */
+            --bg-dark: #dcfce7;           /* Background Hijau Muda */
+            --bg-light: #ffffff;          /* Putih */
+            --card-bg: #ffffff;           /* Putih */
+            --text-primary: #0a4d0a;      /* Hijau Tua */
+            --text-secondary: #0a2d5e;   /* Biru Tua */
+            --border-color: #d1fae5;      /* Border Hijau Muda */
+            --hover-color: #22c55e;       /* Hover Hijau */
+        }
+
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --primary-color: #4ade80;      /* Hijau Muda */
+            --secondary-color: #60a5fa;    /* Biru Muda */
+            --accent-color: #0a4d0a;      /* Hijau Tua */
+            --accent-blue: #0a2d5e;       /* Biru Tua */
+            --text-light: #ffffff;        /* Putih */
+            --bg-dark: #0a4d0a;           /* Hijau Tua */
+            --bg-light: #0a2d5e;          /* Biru Tua */
+            --card-bg: #0a2d5e;           /* Biru Tua */
+            --text-primary: #ffffff;      /* Putih */
+            --text-secondary: #d1fae5;    /* Hijau Muda */
+            --border-color: #22c55e;      /* Border Hijau Medium */
+            --hover-color: #4ade80;       /* Hover Hijau Muda */
+        }
+
+        html {
+            height: 100%;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-light);
+            min-height: 100%;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Fix scrolling issues */
+        .scroll-container {
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: var(--text-light);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Touch-friendly theme toggle */
+        @media (hover: none) {
+            .theme-toggle:active {
+                transform: scale(0.95);
+            }
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: var(--bg-dark);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            will-change: transform;
+        }
+
+        /* Dark Mode Navbar Fix */
+        [data-theme="dark"] .navbar {
+            background: #ffffff !important;
+        }
+
+        [data-theme="dark"] .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(220, 252, 231, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-blue) !important;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .nav-logo i {
+            color: var(--accent-blue) !important;
+        }
+
+        [data-theme="dark"] .nav-logo {
+            color: #0a4d0a !important;
+        }
+
+        [data-theme="dark"] .nav-logo i {
+            color: #0a4d0a !important;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .social-links a {
+            color: var(--accent-blue) !important;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 50%;
+            background: rgba(96, 165, 250, 0.1);
+        }
+
+        [data-theme="dark"] .social-links a {
+            color: #0a4d0a !important;
+            background: rgba(10, 77, 10, 0.1) !important;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-blue) !important;
+            background: rgba(96, 165, 250, 0.2) !important;
+            transform: translateY(-2px);
+        }
+
+        [data-theme="dark"] .social-links a:hover {
+            color: #22c55e !important;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .nav-link {
+            color: var(--accent-blue) !important;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        [data-theme="dark"] .nav-link {
+            color: #0a4d0a !important;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue) !important;
+            transition: width 0.3s ease;
+        }
+
+        [data-theme="dark"] .nav-link::before {
+            background: #0a4d0a !important;
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            background: rgba(96, 165, 250, 0.1) !important;
+            color: var(--accent-blue) !important;
+        }
+
+        [data-theme="dark"] .nav-link:hover {
+            background: rgba(10, 77, 10, 0.1) !important;
+            color: #0a4d0a !important;
+        }
+
+        .nav-link.active {
+            color: var(--accent-blue) !important;
+        }
+
+        [data-theme="dark"] .nav-link.active {
+            color: #0a4d0a !important;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent-blue) !important;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 3px;
+        }
+
+        [data-theme="dark"] .menu-toggle span {
+            background: #0a4d0a !important;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--text-light);
+            padding: 7rem 1rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74, 222, 128, 0.1) 0%, transparent 70%);
+            animation: float 20s infinite linear;
+        }
+
+        [data-theme="dark"] .hero::before {
+            background: radial-gradient(circle, rgba(96, 165, 250, 0.1) 0%, transparent 70%);
+        }
+
+        @keyframes float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            touch-action: manipulation;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        [data-theme="dark"] .btn-primary {
+            background: var(--accent-blue);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background: var(--hover-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 222, 128, 0.3);
+        }
+
+        [data-theme="dark"] .btn-primary:hover {
+            box-shadow: 0 5px 15px rgba(96, 165, 250, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-light);
+            color: var(--primary-color);
+        }
+
+        [data-theme="dark"] .btn-secondary:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        [data-theme="dark"] .section-title {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] .section-title::after {
+            background: #ffffff !important;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        [data-theme="dark"] .section-title::after {
+            background: var(--accent-blue);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        [data-theme="dark"] .feature-card {
+            background: #ffffff !important;
+            color: #0a4d0a !important;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="dark"] .feature-icon {
+            color: #0a4d0a !important;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        [data-theme="dark"] .feature-card h3 {
+            color: #0a4d0a !important;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        [data-theme="dark"] .feature-card p {
+            color: #0a2d5e !important;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .project-card {
+            background: #ffffff !important;
+            color: #0a4d0a !important;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-blue));
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="dark"] .project-icon {
+            color: #0a4d0a !important;
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        [data-theme="dark"] .project-card h3 {
+            color: #0a4d0a !important;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        [data-theme="dark"] .project-card p {
+            color: #0a2d5e !important;
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="dark"] .project-badge {
+            background: #0a4d0a !important;
+            color: #ffffff !important;
+        }
+
+        /* Documentation Section */
+        .docs-section {
+            background: var(--bg-light);
+        }
+
+        .docs-list {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            background: var(--card-bg);
+            border-radius: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        [data-theme="dark"] .docs-list {
+            background: #ffffff !important;
+        }
+
+        .docs-list-item {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            gap: 1rem;
+        }
+
+        .docs-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .docs-list-item:hover {
+            background: rgba(74, 222, 128, 0.05);
+        }
+
+        [data-theme="dark"] .docs-list-item:hover {
+            background: rgba(10, 77, 10, 0.05) !important;
+        }
+
+        .docs-list-item h3 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        [data-theme="dark"] .docs-list-item h3 {
+            color: #0a4d0a !important;
+        }
+
+        .docs-list-item i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        [data-theme="dark"] .docs-list-item i {
+            color: #0a4d0a !important;
+        }
+
+        .docs-list-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        [data-theme="dark"] .docs-list-item p {
+            color: #0a2d5e !important;
+        }
+
+        .docs-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        [data-theme="dark"] .docs-link {
+            color: #0a4d0a !important;
+        }
+
+        .docs-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--text-light);
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .distro-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .distro-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .distro-logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        [data-theme="dark"] .distro-logo {
+            color: var(--accent-blue);
+        }
+
+        .distro-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .distro-card p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        [data-theme="dark"] .about-text h3 {
+            color: #ffffff !important;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        [data-theme="dark"] .about-text p {
+            color: #d1fae5 !important;
+        }
+
+        .about-image {
+            position: relative;
+            width: 100%;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            object-fit: cover;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: var(--text-light);
+            padding: 3rem 1rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        [data-theme="dark"] .footer-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+            
+            .section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-right {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #dcfce7 !important;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+                border-radius: 0 0 1rem 1rem;
+                max-height: calc(100vh - 80px);
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            [data-theme="dark"] .nav-right {
+                background: #ffffff !important;
+            }
+
+            .nav-right.active {
+                display: flex;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 1rem;
+                border-radius: 0.5rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                background: none;
+                border: none;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .features-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .docs-list-item {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .docs-link {
+                margin-top: 1rem;
+            }
+
+            .download-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .footer-links {
+                gap: 1rem;
+            }
+
+            .footer-links a {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .nav-logo {
+                font-size: 1.25rem;
+            }
+
+            .social-links {
+                gap: 0.5rem;
+            }
+
+            .social-links a {
+                font-size: 1rem;
+                padding: 0.4rem;
+            }
+
+            .hero {
+                padding: 5rem 1rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .feature-card,
+            .project-card,
+            .distro-card {
+                padding: 1.5rem;
+            }
+
+            .feature-icon,
+            .project-icon {
+                font-size: 2.5rem;
+            }
+
+            .feature-card h3,
+            .project-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .distro-logo {
+                font-size: 3rem;
+            }
+
+            .docs-list-item {
+                padding: 1rem;
+            }
+
+            .docs-list-item h3 {
+                font-size: 1rem;
+            }
+
+            .docs-list-item i {
+                font-size: 1.25rem;
+            }
+
+            .about-text h3 {
+                font-size: 1.25rem;
+            }
+
+            .about-text p {
+                font-size: 0.9rem;
+            }
+
+            footer {
+                padding: 2rem 1rem 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 0.75rem;
+                margin-bottom: 1.5rem;
+            }
+
+            footer p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* High DPI/Retina Support */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .feature-icon,
+            .project-icon,
+            .distro-logo {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+
+        /* Landscape Mode for Mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                padding: 4rem 1rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .features-grid,
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .theme-toggle,
+            .navbar,
+            .menu-toggle,
+            .cta-buttons,
+            footer {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+                overflow: visible !important;
+            }
+
+            main {
+                margin-top: 0 !important;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .feature-card,
+            .project-card,
+            .docs-list-item {
+                break-inside: avoid;
+            }
+        }
+
+        /* iOS Safari specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            body {
+                position: relative;
+                -webkit-text-size-adjust: 100%;
+            }
+        }
+
+        /* Prevent rubber band scrolling on iOS */
+        body {
+            position: relative;
+            overflow-y: auto;
+        }
+
+        /* Fix for Android scrolling */
+        @media screen and (-webkit-device-pixel-ratio) {
+            body {
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="#home" class="nav-logo">
+                    <i class="fas fa-cube"></i>
+                    T4n OS
+                </a>
+                <div class="social-links">
+                    <a href="https://github.com/t4ngh0st/" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://discord.gg/9tpPAQnR" target="_blank" title="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-right" id="navRight">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#documentation" class="nav-link">Documentation</a>
+                <a href="#download" class="nav-link">Download</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Selamat Datang di T4n OS</h1>
+                <p>Distro Linux berbasis Void Linux yang dirancang untuk performa, kestabilan, dan kemudahan kustomisasi.</p>
+                <div class="cta-buttons">
+                    <a href="#documentation" class="btn btn-primary">
+                        <i class="fas fa-book"></i>
+                        Get Started
+                    </a>
+                    <a href="#download" class="btn btn-secondary">
+                        <i class="fas fa-download"></i>
+                        Download T4n OS
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section">
+            <h2 class="section-title">Keunggulan Void Linux</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Keamanan Terjamin</h3>
+                    <p>Void Linux menggunakan XBPS sebagai manajer paketnya yang dirancang dengan keamanan dan integritas sebagai prioritas utama.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>Rolling Release</h3>
+                    <p>Sistem rolling release yang terus diperbarui, memberikan akses ke software terbaru tanpa perlu upgrade sistem besar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Performa Tinggi</h3>
+                    <p>Void Linux menggunakan runit sebagai init system, yang lebih ringan dan cepat dibandingkan dengan alternatif lainnya.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>High Customize</h3>
+                    <p>Tingkat kustomisasi yang tinggi memungkinkan Anda untuk membangun sistem sesuai kebutuhan spesifik Anda.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section">
+            <h2 class="section-title">Projek T4n OS</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-badge">Beta</div>
+                    <div class="project-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3>Pr0gsh</h3>
+                    <p>Shell buatan T4n User yang tersedia di GitHub. Dirancang untuk produktivitas dan kustomisasi tinggi dengan fitur-fitur modern.</p>
+                    <a href="https://github.com/t4ngh0st/Gh0st-Coin" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-github"></i> Lihat di GitHub
+                    </a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>tanman (T4n-Manager)</h3>
+                    <p>Package manager buatan T4n User. Solusi alternatif untuk mengelola paket dengan antarmuka yang intuitif dan performa tinggi.</p>
+                    <a href="https://github.com/t4ngh0st/T4n-Manpy" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-github"></i> Lihat di GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation Section -->
+        <section id="documentation" class="section docs-section">
+            <h2 class="section-title">Dokumentasi</h2>
+            <div class="docs-list">
+                <div class="docs-list-item">
+                    <div>
+                        <h3><i class="fas fa-book"></i> Void Linux Handbook</h3>
+                        <p>Dokumentasi resmi Void Linux yang lengkap untuk memahami sistem secara mendalam</p>
+                    </div>
+                    <a href="https://docs.voidlinux.org/" target="_blank" class="docs-link">
+                        Kunjungi <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <div class="docs-list-item">
+                    <div>
+                        <h3><i class="fas fa-wikipedia-w"></i> Wiki T4n OS</h3>
+                        <p>Dokumentasi khusus T4n OS termasuk panduan instalasi dan konfigurasi</p>
+                    </div>
+                    <a href="Wiki/wiki.html" class="docs-link">
+                        Baca <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="docs-list-item">
+                    <div>
+                        <h3><i class="fab fa-github"></i> Projek GitHub</h3>
+                        <p>Other Project Gh0sT4n</p>
+                    </div>
+                    <a href="https://github.com/t4ngh0st/" target="_blank" class="docs-link">
+                        Lihat Projek <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="section download-section">
+            <h2 class="section-title" style="color: var(--text-light);">Download Distro</h2>
+            <div class="download-grid">
+                <div class="distro-card">
+                    <div class="distro-logo">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Void Linux</h3>
+                    <p>Distro Linux independen dengan rolling release, runit init system, dan XBPS package manager</p>
+                    <a href="#" class="btn btn-primary">Download</a>
+                </div>
+                <div class="distro-card">
+                    <div class="distro-logo">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>T4n OS</h3>
+                    <p>Distro berbasis Void Linux dengan tambahan fitur dan kustomisasi untuk pengalaman yang lebih baik</p>
+                    <a href="#" class="btn btn-primary">Download</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">Tentang T4n OS</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Komunitas Void Linux Indonesia</h3>
+                    <p>T4n OS adalah distribusi Linux berbasis Void Linux yang dikembangkan oleh komunitas di Indonesia. Kami bertujuan untuk menyediakan sistem operasi yang stabil, cepat, dan mudah dikustomisasi.</p>
+                    <p>Dengan mengambil keunggulan Void Linux seperti sistem rolling release, manajer paket XBPS yang cepat, dan init system runit yang ringan, T4n OS menambahkan berbagai peningkatan dan kustomisasi untuk pengalaman pengguna yang lebih baik.</p>
+                    <p>Bergabunglah dengan komunitas kami dalam mengembangkan dan mempopulerkan Void Linux serta T4n OS di Indonesia!</p>
+                    <div class="cta-buttons" style="justify-content: flex-start; margin-top: 2rem;">
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-users"></i>
+                            Bergabung Sekarang
+                        </a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="T4n.jpg" alt="Void Linux BSPWM">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#documentation">Documentation</a>
+                <a href="#download">Download</a>
+                <a href="#about">About</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <p>&copy; 2025 T4n OS Community. All rights reserved.</p>
+            <p>Made with <i class="fas fa-heart" style="color: #e53e3e;"></i> for Void Linux Enthusiasts</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const htmlElement = document.documentElement;
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', currentTheme);
+        
+        // Update icon based on current theme
+        if (currentTheme === 'dark') {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            // Update theme
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            if (newTheme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navRight = document.getElementById('navRight');
+
+        menuToggle.addEventListener('click', function() {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            menuToggle.classList.toggle('active');
+            navRight.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open on mobile
+            if (navRight.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = event.target.closest('.navbar');
+            const isClickInsideMenu = event.target.closest('.nav-right');
+            const isClickInsideToggle = event.target.closest('.menu-toggle');
+            
+            if (!isClickInsideNav && !isClickInsideMenu && !isClickInsideToggle && navRight.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navRight.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && navRight.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navRight.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    if (navRight.classList.contains('active')) {
+                        menuToggle.classList.remove('active');
+                        navRight.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+        });
+
+        // Active navigation link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function updateActiveLink() {
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').slice(1) === sectionId) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink(); // Call once on load
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.feature-card, .project-card, .docs-list-item, .distro-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Handle window resize for responsive behavior
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                // Close mobile menu on resize to desktop
+                if (window.innerWidth > 768) {
+                    navRight.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+                updateActiveLink();
+            }, 250);
+        });
+
+        // Add touch support for better mobile experience
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                // Swipe left - close menu if open
+                if (navRight.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                    navRight.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            }
+            if (touchEndX > touchStartX + 50) {
+                // Swipe right - could be used to open menu
+                // Optional: implement swipe to open menu
+            }
+        }
+
+        // Fix for iOS viewport height
+        function setViewportHeight() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        setViewportHeight();
+        window.addEventListener('resize', setViewportHeight);
+        window.addEventListener('orientationchange', setViewportHeight);
+
+        // Prevent default touch behavior on certain elements
+        document.addEventListener('touchmove', function(e) {
+            // Only prevent if we're scrolling inside the nav menu
+            if (navRight.classList.contains('active') && !e.target.closest('.nav-right')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Enable smooth scrolling for all browsers
+        document.documentElement.style.scrollBehavior = 'smooth';
+        
+        // Fix for Android Chrome address bar
+        window.addEventListener('resize', function() {
+            if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+                window.setTimeout(function() {
+                    document.activeElement.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html>

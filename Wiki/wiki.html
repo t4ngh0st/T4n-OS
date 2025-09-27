@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T4n OS Wiki</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="logo">T4n OS</div>
+        <button class="theme-toggle-mobile" id="theme-toggle-mobile">
+            <i class="fa fa-moon"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1><i class="fa fa-cube"></i> T4n OS</h1>
+                <p>Dokumentasi Resmi</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <!-- Pengenalan -->
+                <li><a href="#" class="menu-link level-1 active" data-section="pengenalan"><i class="fa fa-info-circle"></i><span>1. Pengenalan</span></a></li>
+                
+                <!-- Edisi -->
+                <li><a href="#" class="menu-link level-1" data-section="edisi"><i class="fa fa-desktop"></i><span>2. Edisi</span></a></li>
+                
+                <!-- Persiapan -->
+                <li><a href="#" class="menu-link level-1" data-section="persiapan"><i class="fa fa-check-circle"></i><span>3. Persiapan</span></a></li>
+                
+                <!-- Pemasangan -->
+                <li>
+                    <a href="#" class="menu-link level-1 has-submenu" data-section="pemasangan">
+                        <i class="fa fa-download"></i><span>4. Pemasangan</span>
+                        <i class="fa fa-chevron-right toggle-icon"></i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#" class="sub-menu-link level-2 has-submenu" data-section="live-usb">
+                                <i class="fa fa-usb"></i><span>4.1 Live USB</span>
+                                <i class="fa fa-chevron-right toggle-icon"></i>
+                            </a>
+                            <ul>
+                                <li><a href="#" class="sub-menu-link level-3" data-section="akun-pengguna"><i class="fa fa-user"></i><span>4.1.1 Akun Pengguna</span></a></li>
+                                <li><a href="#" class="sub-menu-link level-3" data-section="boot-mode"><i class="fa fa-power-off"></i><span>4.1.2 Boot Mode</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="sub-menu-link level-2 has-submenu" data-section="sistem-partisi">
+                                <i class="fa fa-hdd"></i><span>4.2 Sistem Partisi</span>
+                                <i class="fa fa-chevron-right toggle-icon"></i>
+                            </a>
+                            <ul>
+                                <li><a href="#" class="sub-menu-link level-3" data-section="tipe-disk"><i class="fa fa-database"></i><span>4.2.1 Tipe Disk</span></a></li>
+                                <li><a href="#" class="sub-menu-link level-3" data-section="swap"><i class="fa fa-exchange-alt"></i><span>4.2.2 Swap</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- Konfigurasi -->
+                <li>
+                    <a href="#" class="menu-link level-1 has-submenu" data-section="konfigurasi">
+                        <i class="fa fa-cogs"></i><span>5. Konfigurasi</span>
+                        <i class="fa fa-chevron-right toggle-icon"></i>
+                    </a>
+                    <ul>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="root"><i class="fa fa-user-shield"></i><span>5.1 Root</span></a></li>
+                        <li>
+                            <a href="#" class="sub-menu-link level-2 has-submenu" data-section="driver">
+                                <i class="fa fa-microchip"></i><span>5.2 Driver</span>
+                                <i class="fa fa-chevron-right toggle-icon"></i>
+                            </a>
+                            <ul>
+                                <li><a href="#" class="sub-menu-link level-3" data-section="intel"><i class="fa fa-microchip"></i><span>5.2.1 Intel</span></a></li>
+                                <li><a href="#" class="sub-menu-link level-3" data-section="amd"><i class="fa fa-microchip"></i><span>5.2.2 AMD</span></a></li>
+                                <li><a href="#" class="sub-menu-link level-3" data-section="nvidia"><i class="fa fa-microchip"></i><span>5.2.3 NVIDIA</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="sub-menu-link level-2 has-submenu" data-section="jaringan">
+                                <i class="fa fa-wifi"></i><span>5.3 Jaringan</span>
+                                <i class="fa fa-chevron-right toggle-icon"></i>
+                            </a>
+                            <ul>
+                                <li><a href="#" class="sub-menu-link level-3" data-section="broadcom"><i class="fa fa-wifi"></i><span>5.3.1 Broadcom</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- Grub -->
+                <li>
+                    <a href="#" class="menu-link level-1 has-submenu" data-section="grub">
+                        <i class="fa fa-undo"></i><span>6. Grub</span>
+                        <i class="fa fa-chevron-right toggle-icon"></i>
+                    </a>
+                    <ul>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="dual-boot"><i class="fa fa-desktop"></i><span>6.1 Dual Boot</span></a></li>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="reinstall"><i class="fa fa-redo"></i><span>6.2 Reinstall</span></a></li>
+                    </ul>
+                </li>
+                
+                <!-- Manajemen Paket -->
+                <li>
+                    <a href="#" class="menu-link level-1 has-submenu" data-section="manajemen-paket">
+                        <i class="fa fa-archive"></i><span>7. Manajemen Paket</span>
+                        <i class="fa fa-chevron-right toggle-icon"></i>
+                    </a>
+                    <ul>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="xbps"><i class="fa fa-box"></i><span>7.1 XBPS</span></a></li>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="pr0gsh"><i class="fa fa-terminal"></i><span>7.2 Pr0gsh</span></a></li>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="t4nman"><i class="fa fa-cog"></i><span>7.3 T4n-Man</span></a></li>
+                    </ul>
+                </li>
+                
+                <!-- Kernel -->
+                <li>
+                    <a href="#" class="menu-link level-1 has-submenu" data-section="kernel">
+                        <i class="fa fa-microchip"></i><span>8. Kernel</span>
+                        <i class="fa fa-chevron-right toggle-icon"></i>
+                    </a>
+                    <ul>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="kernel-lts"><i class="fa fa-shield-alt"></i><span>8.1 Kernel Linux LTS</span></a></li>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="kernel-zen"><i class="fa fa-rocket"></i><span>8.2 Kernel Zen</span></a></li>
+                    </ul>
+                </li>
+                
+                <!-- Permasalahan -->
+                <li>
+                    <a href="#" class="menu-link level-1 has-submenu" data-section="permasalahan">
+                        <i class="fa fa-exclamation-triangle"></i><span>9. Permasalahan</span>
+                        <i class="fa fa-chevron-right toggle-icon"></i>
+                    </a>
+                    <ul>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="audio"><i class="fa fa-volume-up"></i><span>9.1 Audio</span></a></li>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="sddm"><i class="fa fa-sign-in-alt"></i><span>9.2 SDDM</span></a></li>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="xbps-issue"><i class="fa fa-box"></i><span>9.3 XBPS</span></a></li>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="t4nman-issue"><i class="fa fa-cog"></i><span>9.4 T4n-Man</span></a></li>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="pr0gsh-issue"><i class="fa fa-terminal"></i><span>9.5 Pr0gsh</span></a></li>
+                        <li><a href="#" class="sub-menu-link level-2" data-section="partisi-issue"><i class="fa fa-hdd"></i><span>9.6 Partisi</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content" id="main-content">
+            <div class="content-header">
+                <h2 id="section-title">1. Pengenalan</h2>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fa fa-moon"></i>
+                </button>
+            </div>
+            
+            <!-- Pengenalan Section -->
+            <div class="content-section active" id="pengenalan">
+                <h3>Tentang T4n OS</h3>
+                <p><b>T4n OS</b> adalah distribusi Linux berbasis <b>Void Linux</b> yang dioptimalkan untuk kinerja tinggi dan pengalaman pengguna yang mulus. Didesain untuk pengguna yang menginginkan sistem yang ringan, cepat, dan dapat disesuaikan.</p>
+                <p><b>T4n OS</b> menggabungkan kestabilan <b>Void Linux</b> dengan berbagai peningkatan dan tweak khusus untuk memberikan pengalaman computing yang optimal. Sistem ini menggunakan paket manajer XBPS yang cepat dan andal, serta mendukung berbagai lingkungan desktop modern.</p>
+                <p><b>T4n OS</b> berasal dari nama Tokoh revolusioner di Indonesia yaitu <b>Tan Malaka</b></p>
+                
+                <img src="assets/images/T4n-Desktop.jpg" alt="T4n OS Desktop" class="screenshot">
+                
+                <div class="note-box">
+                    <p><strong>Catatan:</strong> <b>T4n OS</b> adalah proyek independen dan tidak berafiliasi dengan Void Linux secara resmi.</p>
+                </div>
+            </div>
+            
+            <!-- Edisi Section -->
+            <div class="content-section" id="edisi">
+                <h3>2. Edisi T4n OS</h3>
+                <p>T4n OS tersedia dalam beberapa edisi yang dioptimalkan untuk berbagai kebutuhan dan preferensi pengguna:</p>
+                
+                <div class="edition-grid">
+                    <div class="edition-card">
+                        <h4>XFCE Edition</h4>
+                        <img src="assets/images/T4n-XFCE.jpg" alt="XFCE Desktop">
+                        <p>Edisi XFCE menawarkan lingkungan desktop yang ringan, stabil, dan mudah digunakan. Cocok untuk pengguna yang menginginkan keseimbangan antara kinerja dan fitur.</p>
+                    </div>
+                    
+                    <div class="edition-card">
+                        <h4>i3 Edition</h4>
+                        <img src="assets/images/T4n-i3.jpg" alt="i3 Window Manager">
+                        <p>Edisi i3 menggunakan window manager tiling yang efisien untuk produktivitas maksimal. Ideal untuk pengguna yang lebih suka keyboard-driven workflow.</p>
+                    </div>
+                    
+                    <div class="edition-card">
+                        <h4>BSPWM Edition</h4>
+                        <img src="assets/images/T4n-Bspwm.jpg" alt="BSPWM Desktop">
+                        <p>Edisi BSPWM menawarkan tiling window manager yang ringan dan dapat dikonfigurasi tinggi dengan fokus pada kinerja dan minimalisme.</p>
+                    </div>
+                    
+                    <div class="edition-card">
+                        <h4>Hyprland Edition</h4>
+                        <img src="assets/images/T4n-Hyprland.jpg" alt="Hyprland Desktop">
+                        <p>Edisi Hyprland menggunakan compositor Wayland yang dinamis dengan animasi halus dan fitur modern. Cocok untuk pengguna yang menginginkan pengalaman visual yang menarik.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Persiapan Section -->
+            <div class="content-section" id="persiapan">
+                <h3>3. Persiapan Instalasi</h3>
+                <p>Sebelum memulai instalasi T4n OS, pastikan Anda telah memenuhi persyaratan berikut:</p>
+                
+                <ul>
+                    <li><strong>Hardware:</strong> Prosesor 64-bit (x86_64), minimal 2GB RAM (4GB direkomendasikan), dan minimal 15GB ruang disk</li>
+                    <li><strong>Media Instalasi:</strong> USB flash drive minimal 4GB</li>
+                    <li><strong>Koneksi Internet:</strong> Diperlukan untuk mengunduh paket selama instalasi</li>
+                    <li><strong>Backup Data:</strong> Pastikan Anda telah membackup data penting sebelum instalasi</li>
+                </ul>
+                
+                <h3>Unduh ISO T4n OS</h3>
+                <p>Unduh file ISO T4n OS dari situs resmi:</p>
+                <div class="code-block">
+                    https://tanos.org/download/
+                </div>
+                
+                <h3>Verifikasi ISO</h3>
+                <p>Setelah mengunduh, verifikasi integritas file ISO menggunakan checksum:</p>
+                <div class="code-block">
+                    sha256sum t4n-os-*.iso
+                </div>
+            </div>
+            
+            <!-- Pemasangan Section -->
+            <div class="content-section" id="pemasangan">
+                <h3>4. Pemasangan T4n OS</h3>
+                <p>Proses instalasi T4n OS dirancang untuk sederhana namun fleksibel. Ikuti langkah-langkah berikut untuk menginstal sistem:</p>
+                
+                <h4>1. Boot dari Live USB</h4>
+                <p>Masukkan USB flash drive yang berisi ISO T4n OS dan boot dari media tersebut. Pilih opsi "Boot T4n OS Live" dari menu boot.</p>
+                
+                <h4>2. Persiapkan Partisi</h4>
+                <p>Gunakan alat partisi seperti <code>fdisk</code>, <code>cfdisk</code>, atau <code>gparted</code> untuk mempersiapkan partisi:</p>
+                <div class="code-block">
+                    cfdisk /dev/sda
+                </div>
+                
+                <h4>3. Mount Partisi</h4>
+                <p>Mount partisi root dan home (jika ada):</p>
+                <div class="code-block">
+                    mount /dev/sda2 /mnt<br>
+                    mkdir -p /mnt/home<br>
+                    mount /dev/sda3 /mnt/home
+                </div>
+                
+                <h4>4. Instal Sistem Dasar</h4>
+                <p>Jalankan instalasi dengan perintah:</p>
+                <div class="code-block">
+                    t4n-installer
+                </div>
+                
+                <h4>5. Konfigurasi Sistem</h4>
+                <p>Setelah instalasi selesai, konfigurasi sistem dasar seperti pengguna, jaringan, dan driver.</p>
+                
+                <h4>6. Reboot</h4>
+                <p>Keluar dari lingkungan chroot dan reboot sistem:</p>
+                <div class="code-block">
+                    exit<br>
+                    umount -R /mnt<br>
+                    reboot
+                </div>
+            </div>
+            
+            <!-- Live USB Section -->
+            <div class="content-section" id="live-usb">
+                <h3>4.1 Live USB</h3>
+                <p>Untuk membuat Live USB T4n OS, Anda dapat menggunakan salah satu metode berikut:</p>
+                
+                <h4>Menggunakan dd (Linux/macOS)</h4>
+                <div class="code-block">
+                    dd if=t4n-os-*.iso of=/dev/sdX bs=4M status=progress
+                </div>
+                <p>Ganti <code>/dev/sdX</code> dengan device USB Anda (misal: <code>/dev/sdb</code>).</p>
+                
+                <h4>Menggunakan Etcher (Cross-platform)</h4>
+                <ol>
+                    <li>Unduh dan instal Etcher dari <a href="https://etcher.balena.io/">https://etcher.balena.io/</a></li>
+                    <li>Pilih file ISO T4n OS</li>
+                    <li>Pilih USB flash drive target</li>
+                    <li>Klik "Flash" untuk memulai proses</li>
+                </ol>
+                
+                <h4>Menggunakan Rufus (Windows)</h4>
+                <ol>
+                    <li>Unduh dan instal Rufus dari <a href="https://rufus.ie/">https://rufus.ie/</a></li>
+                    <li>Pilih USB flash drive target</li>
+                    <li>Pilih opsi "DD Image" dan pilih file ISO T4n OS</li>
+                    <li>Klik "Start" untuk memulai proses</li>
+                </ol>
+                
+                <div class="note-box">
+                    <p><strong>Peringatan:</strong> Proses ini akan menghapus semua data di USB flash drive. Pastikan Anda telah membackup data penting sebelum melanjutkan.</p>
+                </div>
+            </div>
+            
+            <!-- Akun Pengguna Section -->
+            <div class="content-section" id="akun-pengguna">
+                <h3>4.1.1 Akun Pengguna</h3>
+                <p>Saat membuat Live USB, Anda perlu mengkonfigurasi akun pengguna untuk lingkungan live:</p>
+                
+                <h4>Membuat Akun Pengguna Live</h4>
+                <div class="code-block">
+                    # Buat user live<br>
+                    useradd -m -G wheel,audio,video,storage t4n<br>
+                    echo "t4n:password" | chpasswd
+                </div>
+                
+                <h4>Mengatur Password Root</h4>
+                <div class="code-block">
+                    echo "root:password" | chpasswd
+                </div>
+                
+                <h4>Konfigurasi Sudo</h4>
+                <p>Untuk memungkinkan user t4n menggunakan sudo:</p>
+                <div class="code-block">
+                    echo "%wheel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/wheel
+                </div>
+                
+                <div class="note-box">
+                    <p><strong>Keamanan:</strong> Password default di lingkungan live sebaiknya diganti setelah boot untuk keamanan.</p>
+                </div>
+            </div>
+            
+            <!-- Boot Mode Section -->
+            <div class="content-section" id="boot-mode">
+                <h3>4.1.2 Boot Mode</h3>
+                <p>T4n OS mendukung dua mode boot: BIOS (Legacy) dan UEFI. Pastikan Anda memilih mode yang sesuai dengan sistem Anda:</p>
+                
+                <h4>Memeriksa Mode Boot</h4>
+                <div class="code-block">
+                    # Untuk UEFI<br>
+                    ls /sys/firmware/efi<br><br>
+                    # Jika direktori ada, sistem menggunakan UEFI
+                </div>
+                
+                <h4>Boot Mode untuk Live USB</h4>
+                <ul>
+                    <li><strong>UEFI Mode:</strong> Pilih opsi boot dengan label "UEFI" di menu boot</li>
+                    <li><strong>Legacy Mode:</strong> Pilih opsi boot tanpa label "UEFI"</li>
+                </ul>
+                
+                <h4>Implikasi Boot Mode</h4>
+                <p>Mode boot yang Anda pilih akan menentukan:</p>
+                <ul>
+                    <li>Tabel partisi (GPT untuk UEFI, MBR untuk Legacy)</li>
+                    <li>Lokasi bootloader (EFI partition untuk UEFI, MBR untuk Legacy)</li>
+                    <li>Driver yang digunakan saat boot</li>
+                </ul>
+                
+                <div class="note-box">
+                    <p><strong>Tip:</strong> Sebagian besar komputer modern (produksi setelah 2010) mendukung UEFI. Gunakan UEFI jika memungkinkan untuk fitur keamanan yang lebih baik.</p>
+                </div>
+            </div>
+            
+            <!-- Sistem Partisi Section -->
+            <div class="content-section" id="sistem-partisi">
+                <h3>4.2 Sistem Partisi</h3>
+                <p>Partisi yang tepat sangat penting untuk kinerja dan stabilitas sistem. Berikut adalah skema partisi yang direkomendasikan untuk T4n OS:</p>
+                
+                <h4>Tipe Disk</h4>
+                <ul>
+                    <li><strong>Root (/):</strong> Minimal 15GB, disarankan 25-50GB untuk instalasi yang lebih lengkap</li>
+                    <li><strong>Home (/home):</strong> Sisa ruang disk untuk data pengguna</li>
+                    <li><strong>Swap:</strong> Minimal 2GB atau sama dengan ukuran RAM jika hibernasi diperlukan</li>
+                </ul>
+                
+                <h4>Contoh Skema Partisi</h4>
+                <div class="code-block">
+                    /dev/sda1 - EFI System Partition (512MB, FAT32)<br>
+                    /dev/sda2 - Root Partition (25GB, ext4)<br>
+                    /dev/sda3 - Home Partition (Sisa ruang, ext4)<br>
+                    /dev/sda4 - Swap Partition (4GB, linux-swap)
+                </div>
+                
+                <h4>Membuat Partisi dengan cfdisk</h4>
+                <div class="code-block">
+                    cfdisk /dev/sda
+                </div>
+                <p>Dalam cfdisk:</p>
+                <ol>
+                    <li>Pilih "gpt" untuk tabel partisi GPT (modern) atau "dos" untuk MBR (legacy)</li>
+                    <li>Buat partisi baru dengan "New"</li>
+                    <li>Tetapkan ukuran dan tipe partisi</li>
+                    <li>Tulis perubahan dengan "Write"</li>
+                    <li>Keluar dengan "Quit"</li>
+                </ol>
+                
+                <h4>Format Partisi</h4>
+                <p>Setelah partisi dibuat, format partisi tersebut:</p>
+                <div class="code-block">
+                    mkfs.fat -F32 /dev/sda1  # EFI partition<br>
+                    mkfs.ext4 /dev/sda2     # Root partition<br>
+                    mkfs.ext4 /dev/sda3     # Home partition<br>
+                    mkswap /dev/sda4         # Swap partition<br>
+                    swapon /dev/sda4         # Activate swap
+                </div>
+            </div>
+            
+            <!-- Tipe Disk Section -->
+            <div class="content-section" id="tipe-disk">
+                <h3>4.2.1 Tipe Disk (Root & User)</h3>
+                <p>Pemilihan tipe disk yang tepat untuk partisi root dan user sangat penting untuk kinerja sistem:</p>
+                
+                <h4>Partisi Root (/)</h4>
+                <p>Partisi root berisi sistem operasi dan aplikasi:</p>
+                <ul>
+                    <li><strong>Ukuran minimal:</strong> 15GB</li>
+                    <li><strong>Ukuran disarankan:</strong> 25-50GB</li>
+                    <li><strong>Filesystem:</strong> ext4 (default), btrfs, atau f2fs untuk SSD</li>
+                    <li><strong>Mount options:</strong> defaults,noatime untuk performa lebih baik</li>
+                </ul>
+                
+                <h4>Partisi Home (/home)</h4>
+                <p>Partisi home berisi data pengguna:</p>
+                <ul>
+                    <li><strong>Ukuran:</strong> Sisa ruang disk yang tersedia</li>
+                    <li><strong>Filesystem:</strong> ext4, btrfs (untuk snapshot), atau xfs</li>
+                    <li><strong>Mount options:</strong> defaults,noatime</li>
+                    <li><strong>Separate partition:</strong> Memudahkan reinstall tanpa kehilangan data</li>
+                </ul>
+                
+                <h4>Format Partisi</h4>
+                <div class="code-block">
+                    # Format root partition<br>
+                    mkfs.ext4 -L ROOT /dev/sda2<br><br>
+                    # Format home partition<br>
+                    mkfs.ext4 -L HOME /dev/sda3
+                </div>
+                
+                <h4>Mount Partisi</h4>
+                <div class="code-block">
+                    # Mount root<br>
+                    mount /dev/sda2 /mnt<br><br>
+                    # Buat dan mount home<br>
+                    mkdir /mnt/home<br>
+                    mount /dev/sda3 /mnt/home
+                </div>
+                
+                <div class="note-box">
+                    <p><strong>Tip:</strong> Menggunakan filesystem yang sama untuk root dan home (misal ext4) menyederhanakan manajemen dan kompatibilitas.</p>
+                </div>
+            </div>
+            
+            <!-- Swap Section -->
+            <div class="content-section" id="swap">
+                <h3>4.2.2 Swap</h3>
+                <p>Swap adalah ruang di disk yang digunakan ketika RAM penuh. Berikut adalah panduan untuk mengkonfigurasi swap:</p>
+                
+                <h4>Ukuran Swap yang Direkomendasikan</h4>
+                <ul>
+                    <li><strong>RAM < 2GB:</strong> Swap = 2x RAM</li>
+                    <li><strong>RAM 2-8GB:</strong> Swap = RAM</li>
+                    <li><strong>RAM > 8GB:</strong> Swap = minimal 4GB atau 8GB</li>
+                    <li><strong>Untuk hibernasi:</strong> Swap = RAM + sedikit buffer</li>
+                </ul>
+                
+                <h4>Membuat Swap Partition</h4>
+                <div class="code-block">
+                    # Buat partition swap (misal /dev/sda4)<br>
+                    # Format sebagai swap<br>
+                    mkswap /dev/sda4<br><br>
+                    # Aktifkan swap<br>
+                    swapon /dev/sda4
+                </div>
+                
+                <h4>Menggunakan Swap File</h4>
+                <p>Alternatif untuk swap partition adalah swap file:</p>
+                <div class="code-block">
+                    # Buat swap file 4GB<br>
+                    fallocate -l 4G /swapfile<br><br>
+                    # Atur permission<br>
+                    chmod 600 /swapfile<br><br>
+                    # Format sebagai swap<br>
+                    mkswap /swapfile<br><br>
+                    # Aktifkan swap<br>
+                    swapon /swapfile
+                </div>
+                
+                <h4>Konfigurasi Swappiness</h4>
+                <p>Swappiness mengontrol seberapa sering sistem menggunakan swap:</p>
+                <div class="code-block">
+                    # Lihat nilai swappiness saat ini<br>
+                    cat /proc/sys/vm/swappiness<br><br>
+                    # Set swappiness ke 10 (lebih sedikit menggunakan swap)<br>
+                    echo "vm.swappiness=10" >> /etc/sysctl.d/99-swappiness.conf
+                </div>
+                
+                <div class="note-box">
+                    <p><strong>Performa:</strong> Untuk sistem dengan RAM besar (>8GB), swap dapat dikurangi atau bahkan dihilangkan kecuali untuk hibernasi.</p>
+                </div>
+            </div>
+            
+            <!-- Konfigurasi Section -->
+            <div class="content-section" id="konfigurasi">
+                <h3>5. Konfigurasi Sistem</h3>
+                <p>Setelah instalasi dasar selesai, Anda perlu mengkonfigurasi sistem untuk penggunaan optimal:</p>
+                
+                <h4>1. Konfigurasi Pengguna</h4>
+                <p>Buat pengguna baru dan atur password:</p>
+                <div class="code-block">
+                    useradd -m -G wheel,audio,video,storage username<br>
+                    passwd username
+                </div>
+                
+                <h4>2. Konfigurasi Sudo</h4>
+                <p>Edit file sudoers untuk memberikan akses sudo kepada grup wheel:</p>
+                <div class="code-block">
+                    visudo
+                </div>
+                <p>Hapus komentar pada baris: <code>%wheel ALL=(ALL:ALL) ALL</code></p>
+                
+                <h4>3. Konfigurasi Jaringan</h4>
+                <p>Untuk koneksi nirkabel, instal dan konfigurasi NetworkManager:</p>
+                <div class="code-block">
+                    xbps-install -S NetworkManager<br>
+                    ln -s /etc/sv/NetworkManager /var/service/<br>
+                    sv up NetworkManager
+                </div>
+                
+                <h4>4. Konfigurasi Locale</h4>
+                <p>Atur locale untuk bahasa Indonesia:</p>
+                <div class="code-block">
+                    echo "id_ID.UTF-8 UTF-8" >> /etc/locale.conf<br>
+                    localectl set-locale LANG=id_ID.UTF-8
+                </div>
+                
+                <h4>5. Konfigurasi Timezone</h4>
+                <p>Atur timezone ke Asia/Jakarta:</p>
+                <div class="code-block">
+                    ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime<br>
+                    hwclock --systohc
+                </div>
+            </div>
+            
+            <!-- Root Section -->
+            <div class="content-section" id="root">
+                <h3>5.1 Root</h3>
+                <p>Akses root di T4n OS dapat dikonfigurasi dengan beberapa cara:</p>
+                
+                <h4>Menggunakan Sudo</h4>
+                <p>Cara yang direkomendasikan adalah menggunakan sudo untuk akses administratif:</p>
+                <div class="code-block">
+                    sudo <command>
+                </div>
+                
+                <h4>Mengaktifkan Login Root Langsung</h4>
+                <p>Jika Anda memerlukan login root langsung (tidak disarankan untuk keamanan):</p>
+                <div class="code-block">
+                    passwd root
+                </div>
+                
+                <h4>Mengunci Akun Root</h4>
+                <p>Untuk meningkatkan keamanan, kunci akun root dan gunakan sudo saja:</p>
+                <div class="code-block">
+                    passwd -l root
+                </div>
+                
+                <div class="note-box">
+                    <p><strong>Keamanan:</strong> Menggunakan sudo lebih aman daripada login root langsung karena memberikan kontrol yang lebih baik atas akses administratif.</p>
+                </div>
+            </div>
+            
+            <!-- Driver Section -->
+            <div class="content-section" id="driver">
+                <h3>5.2 Driver</h3>
+                <p>T4n OS mendukung berbagai driver hardware. Berikut adalah panduan untuk menginstal driver yang sesuai:</p>
+                
+                <h4>Driver Intel</h4>
+                <p>Untuk grafis Intel:</p>
+                <div class="code-block">
+                    xbps-install -S intel-media-driver intel-vaapi-driver<br>
+                    # Untuk Xorg<br>
+                    xbps-install -S xf86-video-intel
+                </div>
+                
+                <h4>Driver AMD</h4>
+                <p>Untuk grafis AMD:</p>
+                <div class="code-block">
+                    xbps-install -S mesa-vulkan-radeon mesa-dri<br>
+                    # Untuk Xorg<br>
+                    xbps-install -S xf86-video-amdgpu
+                </div>
+                
+                <h4>Driver NVIDIA</h4>
+                <p>Untuk grafis NVIDIA:</p>
+                <div class="code-block">
+                    # Driver open-source (nouveau)<br>
+                    xbps-install -S mesa-dri xf86-video-nouveau<br><br>
+                    # Driver proprietary (disarankan untuk performa maksimal)<br>
+                    xbps-install -S nvidia
+                </div>
+                
+                <div class="note-box">
+                    <p><strong>Catatan:</strong> Setelah menginstal driver NVIDIA, Anda mungkin perlu mengkonfigurasi Xorg atau Wayland untuk menggunakan driver tersebut.</p>
+                </div>
+            </div>
+            
+            <!-- Intel Section -->
+            <div class="content-section" id="intel">
+                <h3>5.2.1 Driver Intel</h3>
+                <p>Driver Intel untuk grafis dan media di T4n OS:</p>
+                
+                <h4>Driver Grafis Intel</h4>
+                <div class="code-block">
+                    # Instal driver grafis Intel<br>
+                    xbps-install -S mesa-dri intel-media-driver
+                </div>
+                
+                <h4>Driver Xorg untuk Intel</h4>
+                <div class="code-block">
+                    # Untuk Xorg<br>
+                    xbps-install -S xf86-video-intel
+                </div>
+                
+                <h4>Driver VA-API untuk Intel</h4>
+                <div class="code-block">
+                    # Untuk akselerasi video<br>
+                    xbps-install -S intel-vaapi-driver libva-intel-driver
+                </div>
+                
+                <h4>Konfigurasi Xorg untuk Intel</h4>
+                <p>Buat file konfigurasi Xorg untuk Intel:</p>
+                <div class="code-block">
+                    mkdir -p /etc/X11/xorg.conf.d<br>
+                    echo 'Section "Device"<br>
+                    &nbsp;&nbsp;Identifier "Intel Graphics"<br>
+                    &nbsp;&nbsp;Driver "intel"<br>
+                    &nbsp;&nbsp;Option "TearFree" "true"<br>
+                    EndSection' > /etc/X11/xorg.conf.d/20-intel.conf
+                </div>
+                
+                <h4>Driver untuk Hardware Intel Lainnya</h4>
+                <div class="code-block">
+                    # Driver WiFi Intel<br>
+                    xbps-install -S iwlwifi-firmware<br><br>
+                    # Driver audio Intel<br>
+                    xbps-install -S alsa-firmware
+                </div>
+            </div>
+            
+            <!-- AMD Section -->
+            <div class="content-section" id="amd">
+                <h3>5.2.2 Driver AMD</h3>
+                <p>Driver AMD untuk grafis dan media di T4n OS:</p>
+                
+                <h4>Driver Grafis AMD</h4>
+                <div class="code-block">
+                    # Instal driver grafis AMD<br>
+                    xbps-install -S mesa-dri mesa-vulkan-radeon
+                </div>
+                
+                <h4>Driver Xorg untuk AMD</h4>
+                <div class="code-block">
+                    # Untuk Xorg<br>
+                    xbps-install -S xf86-video-amdgpu
+                </div>
+                
+                <h4>Driver VA-API untuk AMD</h4>
+                <div class="code-block">
+                    # Untuk akselerasi video<br>
+                    xbps-install -S mesa-vaapi
+                </div>
+                
+                <h4>Konfigurasi Xorg untuk AMD</h4>
+                <p>Buat file konfigurasi Xorg untuk AMD:</p>
+                <div class="code-block">
+                    mkdir -p /etc/X11/xorg.conf.d<br>
+                    echo 'Section "Device"<br>
+                    &nbsp;&nbsp;Identifier "AMD Graphics"<br>
+                    &nbsp;&nbsp;Driver "amdgpu"<br>
+                    &nbsp;&nbsp;Option "TearFree" "true"<br>
+                    EndSection' > /etc/X11/xorg.conf.d/20-amd.conf
+                </div>
+                
+                <h4>Firmware AMD</h4>
+                <div class="code-block">
+                    # Firmware untuk GPU AMD terbaru<br>
+                    xbps-install -S linux-firmware-amd
+                </div>
+                
+                <div class="note-box">
+                    <p><strong>Catatan:</strong> Driver AMD open-source sudah sangat baik dan biasanya tidak memerlukan driver proprietary.</p>
+                </div>
+            </div>
+            
+            <!-- NVIDIA Section -->
+            <div class="content-section" id="nvidia">
+                <h3>5.2.3 Driver NVIDIA</h3>
+                <p>Driver NVIDIA untuk grafis di T4n OS:</p>
+                
+                <h4>Driver NVIDIA Proprietary</h4>
+                <div class="code-block">
+                    # Instal driver NVIDIA<br>
+                    xbps-install -S nvidia<br><br>
+                    # Untuk kernel LTS<br>
+                    xbps-install -S nvidia-lts
+                </div>
+                
+                <h4>Driver Open Source (Nouveau)</h4>
+                <div class="code-block">
+                    # Driver open source (basic functionality)<br>
+                    xbps-install -S xf86-video-nouveau mesa-dri
+                </div>
+                
+                <h4>Konfigurasi Xorg untuk NVIDIA</h4>
+                <p>Buat file konfigurasi Xorg untuk NVIDIA:</p>
+                <div class="code-block">
+                    mkdir -p /etc/X11/xorg.conf.d<br>
+                    echo 'Section "Device"<br>
+                    &nbsp;&nbsp;Identifier "NVIDIA Graphics"<br>
+                    &nbsp;&nbsp;Driver "nvidia"<br>
+                    &nbsp;&nbsp;Option "TripleBuffer" "true"<br>
+                    &nbsp;&nbsp;Option "Coolbits" "28"<br>
+                    EndSection' > /etc/X11/xorg.conf.d/20-nvidia.conf
+                </div>
+                
+                <h4>NVIDIA Settings</h4>
+                <div class="code-block">
+                    # GUI untuk konfigurasi NVIDIA<br>
+                    xbps-install -S nvidia-settings
+                </div>
+                
+                <h4>CUDA Support</h4>
+                <div class="code-block">
+                    # Untuk komputasi GPU<br>
+                    xbps-install -S nvidia-cuda-toolkit
+                </div>
+                
+                <div class="note-box">
+                    <p><strong>Rekomendasi:</strong> Gunakan driver proprietary NVIDIA untuk performa gaming dan aplikasi grafis intensif.</p>
+                </div>
+            </div>
+            
+            <!-- Jaringan Section -->
+            <div class="content-section" id="jaringan">
+                <h3>5.3 Jaringan</h3>
+                <p>Konfigurasi jaringan di T4n OS:</p>
+                
+                <h4>NetworkManager</h4>
+                <p>Untuk koneksi nirkabel dan kabel yang mudah:</p>
+                <div class="code-block">
+                    # Instal NetworkManager<br>
+                    xbps-install -S NetworkManager network-manager-applet<br><br>
+                    # Aktifkan service<br>
+                    ln -s /etc/sv/NetworkManager /var/service/<br>
+                    sv up NetworkManager
+                </div>
+                
+                <h4>DHCP Client</h4>
+                <div class="code-block">
+                    # Instal dhcp client<br>
+                    xbps-install -S dhcpcd<br><br>
+                    # Aktifkan service<br>
+                    ln -s /etc/sv/dhcpcd /var/service/<br>
+                    sv up dhcpcd
+                </div>
+                
+                <h4>Konfigurasi Manual</h4>
+                <p>Untuk konfigurasi jaringan statis:</p>
+                <div class="code-block">
+                    # Edit file konfigurasi<br>
+                    nano /etc/rc.conf<br><br>
+                    # Tambahkan konfigurasi IP statis<br>
+                    IPADDR="192.168.1.100"<br>
+                    NETMASK="255.255.255.0"<br>
+                    GATEWAY="192.168.1.1"
+                </div>
+                
+                <h4>Firewall</h4>
+                <div class="code-block">
+                    # Instal iptables<br>
+                    xbps-install -S iptables<br><br>
+                    # Konfigurasi firewall dasar<br>
+                    iptables -A INPUT -i lo -j ACCEPT<br>
+                    iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT<br>
+                    iptables -A INPUT -p tcp --dport 22 -j ACCEPT<br>
+                    iptables -P INPUT DROP
+                </div>
+            </div>
+            
+            <!-- Broadcom Section -->
+            <div class="content-section" id="broadcom">
+                <h3>5.3.1 Broadcom</h3>
+                <p>Driver Broadcom untuk kartu WiFi:</p>
+                
+                <h4>Driver Broadcom Proprietary</h4>
+                <div class="code-block">
+                    # Instal driver Broadcom<br>
+                    xbps-install -S broadcom-wl-dkms
+                </div>
+                
+                <h4>Driver Broadcom Open Source</h4>
+                <div class="code-block">
+                    # Driver open source<br>
+                    xbps-install -S b43-fwcutter
+                </div>
+                
+                <h4>Firmware Broadcom</h4>
+                <div class="code-block">
+                    # Firmware untuk berbagai model Broadcom<br>
+                    xbps-install -S linux-firmware-broadcom
+                </div>
+                
+                <h4>Mengidentifikasi Kartu Broadcom</h4>
+                <div class="code-block">
+                    # Lihat informasi hardware WiFi<br>
+                    lspci | grep -i network<br><br>
+                    # Contoh output untuk Broadcom:<br>
+                    # 03:00.0 Network controller: Broadcom Inc. and subsidiaries BCM4313 802.11bgn Wireless Network Adapter (rev 01)
+                </div>
+                
+                <h4>Memuat Driver</h4>
+                <div class="code-block">
+                    # Unload driver yang ada<br>
+                    modprobe -r b43 bcma<br><br>
+                    # Load driver Broadcom<br>
+                    modprobe wl
+                </div>
+                
+                <div class="note-box">
+                    <p><strong>Catatan:</strong> Driver proprietary Broadcom (wl) biasanya memberikan performa dan stabilitas yang lebih baik daripada driver open source.</p>
+                </div>
+            </div>
+            
+            <!-- Grub Section -->
+            <div class="content-section" id="grub">
+                <h3>6. Grub Bootloader</h3>
+                <p>Konfigurasi GRUB untuk T4n OS:</p>
+                
+                <h4>Instalasi GRUB</h4>
+                <div class="code-block">
+                    # Instal GRUB<br>
+                    xbps-install -S grub<br><br>
+                    # Untuk UEFI<br>
+                    xbps-install -S grub-x86_64-efi
+                </div>
+                
+                <h4>Konfigurasi GRUB</h4>
+                <div class="code-block">
+                    # Generate konfigurasi GRUB<br>
+                    grub-mkconfig -o /boot/grub/grub.cfg
+                </div>
+                
+                <h4>Instal GRUB ke Disk</h4>
+                <div class="code-block">
+                    # Untuk BIOS/MBR<br>
+                    grub-install /dev/sda<br><br>
+                    # Untuk UEFI<br>
+                    grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=T4nOS
+                </div>
+                
+                <h4>Konfigurasi Tambahan</h4>
+                <p>Edit file <code>/etc/default/grub</code> untuk penyesuaian:</p>
+                <div class="code-block">
+                    GRUB_TIMEOUT=5<br>
+                    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"<br>
+                    GRUB_THEME="/usr/share/grub/themes/t4n/theme.txt"
+                </div>
+            </div>
+            
+            <!-- Dual Boot Section -->
+            <div class="content-section" id="dual-boot">
+                <h3>6.1 Dual Boot</h3>
+                <p>Konfigurasi dual boot T4n OS dengan Windows atau sistem operasi lain:</p>
+                
+                <h4>Persiapan Partisi</h4>
+                <ul>
+                    <li>Pastikan ada ruang kosong yang cukup untuk T4n OS</li>
+                    <li>Gunakan alat partisi Windows untuk mengecilkan partisi yang ada</li>
+                    <li>Buat partisi baru untuk T4n OS</li>
+                </ul>
+                
+                <h4>Instalasi T4n OS</h4>
+                <p>Ikuti proses instalasi normal, pastikan untuk:</p>
+                <ul>
+                    <li>Menginstal GRUB ke MBR atau EFI partition</li>
+                    <li>Tidak memformat partisi Windows</li>
+                    <li>Menggunakan partisi yang sudah disiapkan untuk T4n OS</li>
+                </ul>
+                
+                <h4>Konfigurasi GRUB untuk Dual Boot</h4>
+                <div class="code-block">
+                    # Instal os-prober untuk mendeteksi sistem operasi lain<br>
+                    xbps-install -S os-prober<br><br>
+                    # Generate ulang konfigurasi GRUB<br>
+                    grub-mkconfig -o /boot/grub/grub.cfg
+                </div>
+                
+                <h4>Memperbaiki Bootloader Windows</h4>
+                <p>Jika Windows tidak boot setelah instalasi T4n OS:</p>
+                <div class="code-block">
+                    # Boot dari media instalasi Windows<br>
+                    # Pilih "Repair your computer"<br>
+                    # Pilih "Troubleshoot" > "Advanced options" > "Command Prompt"<br>
+                    bootrec /fixmbr<br>
+                    bootrec /fixboot<br>
+                    bootrec /rebuildbcd
+                </div>
+                
+                <div class="note-box">
+                    <p><strong>Peringatan:</strong> Selalu backup data penting sebelum mengubah partisi untuk dual boot.</p>
+                </div>
+            </div>
+            
+            <!-- Reinstall Section -->
+            <div class="content-section" id="reinstall">
+                <h3>6.2 Reinstall</h3>
+                <p>Panduan untuk menginstal ulang T4n OS:</p>
+                
+                <h4>Backup Data</h4>
+                <p>Sebelum menginstal ulang, backup data penting:</p>
+                <div class="code-block">
+                    # Backup home directory<br>
+                    tar -czf backup-home.tar.gz /home/username<br><br>
+                    # Backup konfigurasi penting<br>
+                    tar -czf backup-etc.tar.gz /etc
+                </div>
+                
+                <h4>Proses Reinstall</h4>
+                <ol>
+                    <li>Boot dari Live USB T4n OS</li>
+                    <li>Mount partisi yang ada</li>
+                    <li>Format hanya partisi root (jaga partisi home jika ada)</li>
+                    <li>Ikuti proses instalasi normal</li>
+                    <li>Restore data dari backup setelah instalasi selesai</li>
+                </ol>
+                
+                <h4>Reinstall GRUB</h4>
+                <div class="code-block">
+                    # Boot dari Live USB<br>
+                    # Mount partisi root<br>
+                    mount /dev/sda2 /mnt<br><br>
+                    # Mount partisi lain jika perlu<br>
+                    mount /dev/sda1 /mnt/boot/efi  # untuk UEFI<br><br>
+                    # Chroot ke sistem<br>
+                    chroot /mnt<br><br>
+                    # Reinstall GRUB<br>
+                    grub-install /dev/sda<br>
+                    grub-mkconfig -o /boot/grub/grub.cfg
+                </div>
+                
+                <h4>Clean Install</h4>
+                <p>Untuk instalasi bersih (menghapus semua data):</p>
+                <ol>
+                    <li>Format semua partisi</li>
+                    <li>Ikuti proses instalasi dari awal</li>
+                    <li>Restore data dari backup eksternal</li>
+                </ol>
+            </div>
+            
+            <!-- Manajemen Paket Section -->
+            <div class="content-section" id="manajemen-paket">
+                <h3>7. Manajemen Paket</h3>
+                <p>T4n OS menggunakan XBPS (X Binary Package System) untuk manajemen paket:</p>
+                
+                <h4>XBPS Basic Commands</h4>
+                <div class="code-block">
+                    # Update repository<br>
+                    xbps-install -S<br><br>
+                    # Upgrade semua paket<br>
+                    xbps-install -u<br><br>
+                    # Instal paket<br>
+                    xbps-install package-name<br><br>
+                    # Hapus paket<br>
+                    xbps-remove package-name<br><br>
+                    # Cari paket<br>
+                    xbps-query -Rs search-term
+                </div>
+                
+                <h4>Manajemen Repository</h4>
+                <div class="code-block">
+                    # Lihat repository yang dikonfigurasi<br>
+                    xbps-query -L<br><br>
+                    # Tambahkan repository non-free<br>
+                    xbps-install -S void-repo-nonfree
+                </div>
+                
+                <h4>Informasi Paket</h4>
+                <div class="code-block">
+                    # Info paket<br>
+                    xbps-query package-name<br><br>
+                    # File yang dimiliki paket<br>
+                    xbps-query -f package-name<br><br>
+                    # Dependencies<br>
+                    xbps-query -x package-name
+                </div>
+            </div>
+            
+            <!-- XBPS Section -->
+            <div class="content-section" id="xbps">
+                <h3>7.1 XBPS</h3>
+                <p>XBPS adalah sistem manajemen paket biner untuk Void Linux dan T4n OS:</p>
+                
+                <h4>Update System</h4>
+                <div class="code-block">
+                    # Synchronize repository<br>
+                    xbps-install -S<br><br>
+                    # Upgrade semua paket<br>
+                    xbps-install -u<br><br>
+                    # Upgrade system (recommended)<br>
+                    xbps-install -Su
+                </div>
+                
+                <h4>Install Packages</h4>
+                <div class="code-block">
+                    # Install single package<br>
+                    xbps-install package<br><br>
+                    # Install multiple packages<br>
+                    xbps-install package1 package2 package3<br><br>
+                    # Install from specific repository<br>
+                    xbps-install -R https://repo.voidlinux.org/current package
+                </div>
+                
+                <h4>Remove Packages</h4>
+                <div class="code-block">
+                    # Remove package<br>
+                    xbps-remove package<br><br>
+                    # Remove with dependencies<br>
+                    xbps-remove -R package<br><br>
+                    # Remove orphaned dependencies<br>
+                    xbps-remove -o<br><br>
+                    # Clean cache<br>
+                    xbps-remove -O
+                </div>
+                
+                <h4>Query Packages</h4>
+                <div class="code-block">
+                    # Search packages<br>
+                    xbps-query -Rs pattern<br><br>
+                    # Show package information<br>
+                    xbps-query -R package<br><br>
+                    # List files in package<br>
+                    xbps-query -Rf package<br><br>
+                    # Show dependencies<br>
+                    xbps-query -Rx package
+                </div>
+                
+                <h4>Hold Packages</h4>
+                <div class="code-block">
+                    # Hold package from updates<br>
+                    xbps-pkgdb -m hold package<br><br>
+                    # Unhold package<br>
+                    xbps-pkgdb -m unhold package<br><br>
+                    # Show held packages<br>
+                    xbps-pkgdb -a | grep hold
+                </div>
+            </div>
+            
+            <!-- Pr0gsh Section -->
+            <div class="content-section" id="pr0gsh">
+                <h3>7.2 Pr0gsh</h3>
+                <p>Pr0gsh adalah wrapper script untuk XBPS yang menyederhanakan manajemen paket:</p>
+                
+                <h4>Basic Usage</h4>
+                <div class="code-block">
+                    # Update system<br>
+                    pr0gsh update<br><br>
+                    # Install package<br>
+                    pr0gsh install package<br><br>
+                    # Remove package<br>
+                    pr0gsh remove package<br><br>
+                    # Search package<br>
+                    pr0gsh search pattern
+                </div>
+                
+                <h4>Advanced Features</h4>
+                <div class="code-block">
+                    # Install with recommended dependencies<br>
+                    pr0gsh install -r package<br><br>
+                    # Remove with configuration files<br>
+                    pr0gsh remove -p package<br><br>
+                    # Show package information<br>
+                    pr0gsh info package<br><br>
+                    # List installed packages<br>
+                    pr0gsh list
+                </div>
+                
+                <h4>System Maintenance</h4>
+                <div class="code-block">
+                    # Clean cache and orphans<br>
+                    pr0gsh clean<br><br>
+                    # Fix broken packages<br>
+                    pr0gsh fix<br><br>
+                    # Show system information<br>
+                    pr0gsh stats
+                </div>
+                
+                <h4>Configuration</h4>
+                <p>Edit <code>~/.config/pr0gsh/config</code> untuk menyesuaikan perilaku:</p>
+                <div class="code-block">
+                    # Enable colors<br>
+                    colors=true<br><br>
+                    # Enable auto-confirm<br>
+                    auto_confirm=false<br><br>
+                    # Set default options<br>
+                    default_options="-y"
+                </div>
+            </div>
+            
+            <!-- T4nman Section -->
+            <div class="content-section" id="t4nman">
+                <h3>7.3 T4n-Man</h3>
+                <p>T4n-Man adalah alat manajemen sistem khusus untuk T4n OS:</p>
+                
+                <h4>System Management</h4>
+                <div class="code-block">
+                    # System information<br>
+                    t4nman info<br><br>
+                    # Update system<br>
+                    t4nman update<br><br>
+                    # Clean system<br>
+                    t4nman clean<br><br>
+                    # Backup system<br>
+                    t4nman backup
+                </div>
+                
+                <h4>Service Management</h4>
+                <div class="code-block">
+                    # List services<br>
+                    t4nman services<br><br>
+                    # Start service<br>
+                    t4nman start service<br><br>
+                    # Stop service<br>
+                    t4nman stop service<br><br>
+                    # Restart service<br>
+                    t4nman restart service
+                </div>
+                
+                <h4>Hardware Management</h4>
+                <div class="code-block">
+                    # Hardware information<br>
+                    t4nman hardware<br><br>
+                    # Driver management<br>
+                    t4nman drivers<br><br>
+                    # Power management<br>
+                    t4nman power
+                </div>
+                
+                <h4>Network Management</h4>
+                <div class="code-block">
+                    # Network status<br>
+                    t4nman network<br><br>
+                    # Configure network<br>
+                    t4nman network setup<br><br>
+                    # Firewall management<br>
+                    t4nman firewall
+                </div>
+                
+                <h4>User Management</h4>
+                <div class="code-block">
+                    # User information<br>
+                    t4nman users<br><br>
+                    # Add user<br>
+                    t4nman user add username<br><br>
+                    # Modify user<br>
+                    t4nman user mod username<br><br>
+                    # Delete user<br>
+                    t4nman user del username
+                </div>
+            </div>
+            
+            <!-- Kernel Section -->
+            <div class="content-section" id="kernel">
+                <h3>8. Kernel</h3>
+                <p>T4n OS menyediakan beberapa pilihan kernel:</p>
+                
+                <h4>Available Kernels</h4>
+                <div class="code-block">
+                    # Linux kernel (latest)<br>
+                    xbps-install -S linux<br><br>
+                    # Linux LTS kernel<br>
+                    xbps-install -S linux-lts<br><br>
+                    # Linux Zen kernel<br>
+                    xbps-install -S linux-zen
+                </div>
+                
+                <h4>Kernel Headers</h4>
+                <div class="code-block">
+                    # Install headers for current kernel<br>
+                    xbps-install -S linux-headers<br><br>
+                    # For specific kernel version<br>
+                    xbps-install -S linux6.1-headers
+                </div>
+                
+                <h4>Kernel Modules</h4>
+                <div class="code-block">
+                    # List loaded modules<br>
+                    lsmod<br><br>
+                    # Load module<br>
+                    modprobe module-name<br><br>
+                    # Remove module<br>
+                    modprobe -r module-name<br><br>
+                    # Module information<br>
+                    modinfo module-name
+                </div>
+                
+                <h4>Kernel Parameters</h4>
+                <p>Edit <code>/etc/default/grub</code> untuk menambahkan parameter kernel:</p>
+                <div class="code-block">
+                    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash mitigations=off"
+                </div>
+            </div>
+            
+            <!-- Kernel LTS Section -->
+            <div class="content-section" id="kernel-lts">
+                <h3>8.1 Kernel Linux LTS</h3>
+                <p>Kernel LTS (Long Term Support) memberikan stabilitas dan dukungan jangka panjang:</p>
+                
+                <h4>Install LTS Kernel</h4>
+                <div class="code-block">
+                    # Install LTS kernel<br>
+                    xbps-install -S linux-lts<br><br>
+                    # Install LTS headers<br>
+                    xbps-install -S linux-lts-headers
+                </div>
+                
+                <h4>Switch to LTS Kernel</h4>
+                <div class="code-block">
+                    # Set LTS as default in GRUB<br>
+                    # Edit /etc/default/grub<br>
+                    GRUB_DEFAULT="T4n OS GNU/Linux Linux-lts"
+                </div>
+                
+                <h4>Benefits of LTS Kernel</h4>
+                <ul>
+                    <li>Dukungan jangka panjang (biasanya 5+ tahun)</li>
+                    <li>Lebih stabil dan teruji</li>
+                    <li>Perbaikan keamanan backported</li>
+                    <li>Kompatibilitas hardware yang terjamin</li>
+                </ul>
+                
+                <h4>Remove Old Kernel</h4>
+                <div class="code-block">
+                    # List installed kernels<br>
+                    xbps-query -s linux<br><br>
+                    # Remove old kernel<br>
+                    xbps-remove -R linux-version
+                </div>
+                
+                <div class="note-box">
+                    <p><strong>Rekomendasi:</strong> Gunakan kernel LTS untuk server atau sistem yang membutuhkan stabilitas maksimal.</p>
+                </div>
+            </div>
+            
+            <!-- Kernel Zen Section -->
+            <div class="content-section" id="kernel-zen">
+                <h3>8.2 Kernel Zen</h3>
+                <p>Kernel Zen dioptimalkan untuk performa desktop dan responsivitas:</p>
+                
+                <h4>Install Zen Kernel</h4>
+                <div class="code-block">
+                    # Install Zen kernel<br>
+                    xbps-install -S linux-zen<br><br>
+                    # Install Zen headers<br>
+                    xbps-install -S linux-zen-headers
+                </div>
+                
+                <h4>Zen Kernel Features</h4>
+                <ul>
+                    <li>Optimasi untuk desktop dan workstation</li>
+                    <li>Improved scheduler untuk responsivitas</li>
+                    <li>Better gaming performance</li>
+                    <li>Audio latency improvements</li>
+                    <li>Filesystem optimizations</li>
+                </ul>
+                
+                <h4>Zen Kernel Parameters</h4>
+                <p>Tambahkan parameter khusus untuk Zen kernel:</p>
+                <div class="code-block">
+                    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=mq-deadline"
+                </div>
+                
+                <h4>Monitoring Performance</h4>
+                <div class="code-block">
+                    # Monitor system responsiveness<br>
+                    sudo perf sched record sleep 10<br>
+                    sudo perf sched latency
+                </div>
+                
+                <div class="note-box">
+                    <p><strong>Rekomendasi:</strong> Kernel Zen ideal untuk desktop, gaming, dan workstation yang membutuhkan responsivitas tinggi.</p>
+                </div>
+            </div>
+            
+            <!-- Permasalahan Section -->
+            <div class="content-section" id="permasalahan">
+                <h3>9. Permasalahan Umum</h3>
+                <p>Berikut adalah solusi untuk permasalahan umum di T4n OS:</p>
+                
+                <h4>Boot Issues</h4>
+                <div class="code-block">
+                    # Boot dari Live USB<br>
+                    # Chroot ke sistem<br>
+                    chroot /mnt<br><br>
+                    # Reinstall kernel<br>
+                    xbps-install -f linux<br><br>
+                    # Reinstall GRUB<br>
+                    grub-install /dev/sda<br>
+                    grub-mkconfig -o /boot/grub/grub.cfg
+                </div>
+                
+                <h4>Network Issues</h4>
+                <div class="code-block">
+                    # Restart NetworkManager<br>
+                    sv restart NetworkManager<br><br>
+                    # Check connection<br>
+                    ping 8.8.8.8<br><br>
+                    # Reset network interface<br>
+                    ip link set dev wlan0 down<br>
+                    ip link set dev wlan0 up
+                </div>
+                
+                <h4>Package Management Issues</h4>
+                <div class="code-block">
+                    # Fix broken packages<br>
+                    xbps-install -f<br><br>
+                    # Clear cache<br>
+                    xbps-remove -O<br><br>
+                    # Reinstall XBPS<br>
+                    xbps-install -f xbps
+                </div>
+                
+                <h4>Getting Help</h4>
+                <ul>
+                    <li>Forum: https://forum.t4nos.org</li>
+                    <li>Wiki: https://wiki.t4nos.org</li>
+                    <li>IRC: #t4nos pada libera.chat</li>
+                    <li>GitHub: https://github.com/t4nos</li>
+                </ul>
+            </div>
+            
+            <!-- Audio Section -->
+            <div class="content-section" id="audio">
+                <h3>9.1 Audio</h3>
+                <p>Pemecahan masalah audio di T4n OS:</p>
+                
+                <h4>No Sound</h4>
+                <div class="code-block">
+                    # Check audio devices<br>
+                    aplay -l<br><br>
+                    # Check if audio is muted<br>
+                    alsamixer<br><br>
+                    # Restart audio services<br>
+                    sv restart alsa<br>
+                    sv restart pulseaudio
+                </div>
+                
+                <h4>PulseAudio Issues</h4>
+                <div class="code-block">
+                    # Restart PulseAudio<br>
+                    pulseaudio -k<br>
+                    pulseaudio --start<br><br>
+                    # Check PulseAudio status<br>
+                    pulseaudio --check -v
+                </div>
+                
+                <h4>PipeWire (Alternative)</h4>
+                <div class="code-block">
+                    # Install PipeWire<br>
+                    xbps-install -S pipewire pipewire-pulse<br><br>
+                    # Enable PipeWire<br>
+                    ln -s /etc/sv/pipewire /var/service/<br>
+                    ln -s /etc/sv/pipewire-pulse /var/service/
+                </div>
+                
+                <h4>Advanced Audio Configuration</h4>
+                <div class="code-block">
+                    # Create custom ALSA configuration<br>
+                    nano /etc/asound.conf<br><br>
+                    # Example configuration:<br>
+                    pcm.!default {<br>
+                    &nbsp;&nbsp;type hw<br>
+                    &nbsp;&nbsp;card 0<br>
+                    }<br>
+                    ctl.!default {<br>
+                    &nbsp;&nbsp;type hw<br>
+                    &nbsp;&nbsp;card 0<br>
+                    }
+                </div>
+            </div>
+            
+            <!-- SDDM Section -->
+            <div class="content-section" id="sddm">
+                <h3>9.2 SDDM</h3>
+                <p>Pemecahan masalah SDDM (Simple Desktop Display Manager):</p>
+                
+                <h4>SDDM Not Starting</h4>
+                <div class="code-block">
+                    # Check SDDM service<br>
+                    sv status sddm<br><br>
+                    # Start SDDM service<br>
+                    sv start sddm<br><br>
+                    # Enable SDDM service<br>
+                    ln -s /etc/sv/sddm /var/service/
+                </div>
+                
+                <h4>SDDM Configuration</h4>
+                <div class="code-block">
+                    # Edit SDDM configuration<br>
+                    nano /etc/sddm.conf<br><br>
+                    # Basic configuration:<br>
+                    [Theme]<br>
+                    Current=t4n<br>
+                    CursorTheme=Adwaita<br><br>
+                    [Users]<br>
+                    MaximumUid=65000<br>
+                    MinimumUid=1000
+                </div>
+                
+                <h4>Alternative Display Manager</h4>
+                <div class="code-block">
+                    # Install LightDM<br>
+                    xbps-install -S lightdm lightdm-gtk3-greeter<br><br>
+                    # Enable LightDM<br>
+                    ln -s /etc/sv/lightdm /var/service/<br><br>
+                    # Disable SDDM<br>
+                    rm /var/service/sddm
+                </div>
+                
+                <h4>Manual Start X</h4>
+                <div class="code-block">
+                    # If display manager fails, start X manually<br>
+                    startx<br><br>
+                    # Or start specific desktop environment<br>
+                    exec startplasma-x11  # for KDE<br>
+                    exec startxfce4       # for XFCE
+                </div>
+            </div>
+            
+            <!-- XBPS Issue Section -->
+            <div class="content-section" id="xbps-issue">
+                <h3>9.3 XBPS</h3>
+                <p>Pemecahan masalah XBPS package manager:</p>
+                
+                <h4>Broken Packages</h4>
+                <div class="code-block">
+                    # Fix broken packages<br>
+                    xbps-install -f<br><br>
+                    # Reinstall XBPS<br>
+                    xbps-install -f xbps<br><br>
+                    # Clear package cache<br>
+                    xbps-remove -O
+                </div>
+                
+                <h4>Repository Issues</h4>
+                <div class="code-block">
+                    # Update repository index<br>
+                    xbps-install -S<br><br>
+                    # Check repository status<br>
+                    xbps-query -L<br><br>
+                    # Add missing repositories<br>
+                    xbps-install -S void-repo-nonfree
+                </div>
+                
+                <h4>Transaction Errors</h4>
+                <div class="code-block">
+                    # Remove transaction locks<br>
+                    rm /var/lock/xbps.lock<br><br>
+                    # Kill stuck XBPS processes<br>
+                    pkill -9 xbps<br><br>
+                    # Rebuild package database<br>
+                    xbps-reconfigure -fa
+                </div>
+                
+                <h4>Dependency Issues</h4>
+                <div class="code-block">
+                    # Remove orphaned dependencies<br>
+                    xbps-remove -o<br><br>
+                    # Check for missing dependencies<br>
+                    xbps-checkvers -I<br><br>
+                    # Reinstall all packages<br>
+                    xbps-install -f $(xbps-query -l | awk '{print $2}')
+                </div>
+            </div>
+            
+            <!-- T4nman Issue Section -->
+            <div class="content-section" id="t4nman-issue">
+                <h3>9.4 T4n-Man</h3>
+                <p>Pemecahan masalah T4n-Man system manager:</p>
+                
+                <h4>T4n-Man Not Working</h4>
+                <div class="code-block">
+                    # Check if T4n-Man is installed<br>
+                    which t4nman<br><br>
+                    # Reinstall T4n-Man<br>
+                    xbps-install -f t4nman<br><br>
+                    # Check configuration<br>
+                    nano /etc/t4nman.conf
+                </div>
+                
+                <h4>Permission Issues</h4>
+                <div class="code-block">
+                    # Run with sudo<br>
+                    sudo t4nman command<br><br>
+                    # Check sudo configuration<br>
+                    sudo visudo<br><br>
+                    # Add user to wheel group<br>
+                    usermod -aG wheel username
+                </div>
+                
+                <h4>Service Management Issues</h4>
+                <div class="code-block">
+                    # Check runit services directly<br>
+                    sv status service-name<br><br>
+                    # Manual service control<br>
+                    sv start service-name<br>
+                    sv stop service-name<br>
+                    sv restart service-name
+                </div>
+                
+                <h4>Update T4n-Man</h4>
+                <div class="code-block">
+                    # Update T4n-Man<br>
+                    xbps-install -Su t4nman<br><br>
+                    # Check for new version<br>
+                    xbps-query -Rs t4nman<br><br>
+                    # Manual update from source<br>
+                    git clone https://github.com/t4nos/t4nman.git<br>
+                    cd t4nman && sudo make install
+                </div>
+            </div>
+            
+            <!-- Pr0gsh Issue Section -->
+            <div class="content-section" id="pr0gsh-issue">
+                <h3>9.5 Pr0gsh</h3>
+                <p>Pemecahan masalah Pr0gsh package manager wrapper:</p>
+                
+                <h4>Pr0gsh Command Not Found</h4>
+                <div class="code-block">
+                    # Install Pr0gsh<br>
+                    xbps-install -S pr0gsh<br><br>
+                    # Check installation<br>
+                    which pr0gsh<br><br>
+                    # Alternative installation<br>
+                    git clone https://github.com/t4nos/pr0gsh.git<br>
+                    cd pr0gsh && sudo make install
+                </div>
+                
+                <h4>Configuration Issues</h4>
+                <div class="code-block">
+                    # Check configuration file<br>
+                    nano ~/.config/pr0gsh/config<br><br>
+                    # Reset to default configuration<br>
+                    rm ~/.config/pr0gsh/config<br><br>
+                    # Create basic configuration<br>
+                    mkdir -p ~/.config/pr0gsh<br>
+                    echo "colors=true" > ~/.config/pr0gsh/config
+                </div>
+                
+                <h4>Package Operations Failing</h4>
+                <div class="code-block">
+                    # Run with verbose output<br>
+                    pr0gsh -v command<br><br>
+                    # Check underlying XBPS<br>
+                    xbps-install -S<br><br>
+                    # Manual package operation<br>
+                    xbps-install package-name
+                </div>
+                
+                <h4>Update Pr0gsh</h4>
+                <div class="code-block">
+                    # Update via XBPS<br>
+                    xbps-install -Su pr0gsh<br><br>
+                    # Manual update<br>
+                    pr0gsh self-update<br><br>
+                    # Check version<br>
+                    pr0gsh version
+                </div>
+            </div>
+            
+            <!-- Partisi Issue Section -->
+            <div class="content-section" id="partisi-issue">
+                <h3>9.6 Partisi</h3>
+                <p>Pemecahan masalah partisi dan filesystem:</p>
+                
+                <h4>Cannot Mount Partition</h4>
+                <div class="code-block">
+                    # Check partition table<br>
+                    fdisk -l<br><br>
+                    # Check filesystem<br>
+                    fsck /dev/sda1<br><br>
+                    # Force mount<br>
+                    mount -t ext4 -o force /dev/sda1 /mnt
+                </div>
+                
+                <h4>Filesystem Corruption</h4>
+                <div class="code-block">
+                    # Check filesystem (unmounted)<br>
+                    umount /dev/sda1<br>
+                    fsck -y /dev/sda1<br><br>
+                    # For ext4 filesystem<br>
+                    e2fsck -f /dev/sda1
+                </div>
+                
+                <h4>Resize Partition</h4>
+                <div class="code-block">
+                    # Boot from Live USB<br>
+                    # Resize with parted<br>
+                    parted /dev/sda resizepart 2 50GB<br><br>
+                    # Resize filesystem<br>
+                    resize2fs /dev/sda2
+                </div>
+                
+                <h4>Recover Deleted Partition</h4>
+                <div class="code-block">
+                    # Install testdisk<br>
+                    xbps-install -S testdisk<br><br>
+                    # Recover partition<br>
+                    testdisk /dev/sda<br><br>
+                    # Alternative: photorec for file recovery<br>
+                    photorec /dev/sda
+                </div>
+                
+                <h4>Disk Space Issues</h4>
+                <div class="code-block">
+                    # Check disk usage<br>
+                    df -h<br><br>
+                    # Find large files<br>
+                    du -h --max-depth=1 / | sort -hr<br><br>
+                    # Clean package cache<br>
+                    xbps-remove -O<br><br>
+                    # Clean system logs<br>
+                    journalctl --vacuum-time=7d
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/script.js"></script>
+</body>
+</html>
