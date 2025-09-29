@@ -21,9 +21,8 @@
 
 ## 📦 Fitur Utama
 - **Init System**: menggunakan `runit` (lebih ringan dibanding systemd).
-- **Desktop Environment**: tersedia pilihan *XFCE* dan *i3 WM* (default minimal).
+- **Desktop Environment**: tersedia pilihan *XFCE*,*i3wm*,*bspwm* & *hyprland*.
 - **Repository Tambahan**: paket bawaan Void Linux + repo custom T4n OS.
-- **Branding T4n**: Plymouth, GRUB theme, icons, dan artwork khas T4n OS.
 - **ISO Installer**: Live ISO untuk instalasi single/dualboot.
 
 ---
