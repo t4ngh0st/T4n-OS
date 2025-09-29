@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="images/T4n.png" alt="T4n OS Logo" width="200"/>
+  <img src="images/T4n.png" alt="T4n OS Logo" width="300"/>
 </p>
 
 <p align="center">
-  <i>Linux Distribution based on <b>Void Linux</b></i>  
+  <i>Linux Distribution based on <b>Void Linux</b></i>
 </p>
 
 
