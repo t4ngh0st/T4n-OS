@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/T4n-OS.png" alt="T4n OS Logo" width="200"/>
+  <img src="images/T4n.png" alt="T4n OS Logo" width="200"/>
 </p>
 
 <p align="center">
