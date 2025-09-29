@@ -10,13 +10,58 @@
 ---
 
 ## ✨ Overview
-**T4n OS** adalah distribusi Linux berbasis **Void Linux** dengan fokus pada:
-- Kesederhanaan
-- Kinerja ringan
-- Penggunaan paket yang mudah melalui **xbps** dan **xbps-src**  
-- Dilengkapi dengan **[T4n-Man](https://github.com/t4ngh0st/T4n-Man)** sebagai package manager wrapper.
+
+**T4n OS** adalah distribusi GNU/Linux berbasis [Void Linux](https://voidlinux.org/) yang dikembangkan dengan fokus pada:
+- **Ringan & Minimalis** → hanya membawa paket inti yang diperlukan.
+- **Stabil & Rolling Release** → selalu up-to-date tanpa perlu reinstall.
+- **Customizable** → mudah diubah sesuai kebutuhan pengguna.
+- **Eksperimen & Belajar** → wadah pengembangan sistem operasi buatan komunitas.
 
 ---
+
+## 📦 Fitur Utama
+- **Init System**: menggunakan `runit` (lebih ringan dibanding systemd).
+- **Desktop Environment**: tersedia pilihan *XFCE* dan *i3 WM* (default minimal).
+- **Repository Tambahan**: paket bawaan Void Linux + repo custom T4n OS.
+- **Branding T4n**: Plymouth, GRUB theme, icons, dan artwork khas T4n OS.
+- **ISO Installer**: Live ISO untuk instalasi single/dualboot.
+
+---
+
+## 🖥️ Persyaratan Sistem
+Minimal untuk menjalankan T4n OS:
+
+- CPU: Intel/AMD 64-bit
+- RAM: 2 GB (disarankan 4 GB+)
+- Storage: 20 GB (minimal), 40 GB+ disarankan
+- GPU: Intel HD / AMD / NVIDIA (open-source driver)
+
+---
+
+## 📥 Unduh ISO
+- [Releases](https://github.com/username/T4n-OS/releases)  
+  (cek file ISO terbaru di halaman release)
+
+---
+## 🔑 Verifikasi ISO
+
+**Checksum**
+```bash
+sha256sum T4nOS.iso
+sha512sum T4nOS.iso
+```
+
+**GPG Signature**
+```bash
+gpg --verify T4nOS.iso.asc T4nOS-XFCE.iso
+```
+---
+
+## Dokumentasi
+- **[Website](https://t4ngh0st.github.io/T4n-OS/)**
+- **[Wiki](#)**
+- **[Official Docs](https://docs.voidlinux.org/)**
+
 
 ## 📀 Editions
 ### 🖥️ XFCE
@@ -30,11 +75,6 @@
 
 ### 🌌 Hyprland *(Coming Soon)*
 <img src="T4n.jpg" alt="T4n OS Hyprland" width="600">
-
----
-
-## ⬇️ Download
-- [Google Drive](mailto:akun@gmail.com)  
 
 ---
 
