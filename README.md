@@ -63,13 +63,13 @@ gpg --verify T4nOS.iso.asc T4nOS-XFCE.iso
 
 
 ## 📀 Editions
-### 🖥️ XFCE
+### 🖥️ XFCE *(Coming Soon)*
 <img src="T4n.jpg" alt="T4n OS XFCE" width="600">
 
-### ⚡ I3WM
+### ⚡ I3WM *(Coming Soon)*
 <img src="T4n.jpg" alt="T4n OS I3WM" width="600">
 
-### 🧩 BSPWM
+### 🧩 BSPWM *(Coming Soon)*
 <img src="T4n.jpg" alt="T4n OS BSPWM" width="600">
 
 ### 🌌 Hyprland *(Coming Soon)*
