@@ -37,9 +37,9 @@ Minimal untuk menjalankan T4n OS:
 
 ---
 
-## 📥 Unduh ISO
-- [Releases](https://github.com/username/T4n-OS/releases)  
-  (cek file ISO terbaru di halaman release)
+## Unduh ISO & Issues
+- [Releases](https://github.com/t4ngh0st/T4n-OS/releases) >> (File ISO ada di pages Releases)
+- [Issues](https://github.com/t4ngh0st/T4n-OS/issues) >> (Laporan: issues) 
 
 ---
 ## 🔑 Verifikasi ISO
